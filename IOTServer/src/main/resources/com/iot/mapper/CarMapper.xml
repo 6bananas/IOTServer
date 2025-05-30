@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.iot.mapper.CarMapper">
+    <sql id="commonSelectCar">
+        select car.vid, car.pid, car.light, car.state, battery.voltage, battery.temperature, battery.power
+        from car
+    </sql>
+    <select id="selectDetailedCarInfoAll" resultType="com.iot.vo.CarVO">
+        <include refid="commonSelectCar"/>
+        inner join battery on car.pid = battery.pid
+        where car.state != 0
+    </select>
+    <select id="selectDetailedCarInfo" resultType="com.iot.vo.CarVO">
+        <include refid="commonSelectCar"/>
+        inner join battery on car.pid = battery.pid
+        where car.vid = #{vid} and car.state != 0
+    </select>
+</mapper>

@@ -1,0 +1,22 @@
+{
+  "groups": [
+    {
+      "name": "tcp.server",
+      "type": "com.iot.server.TCPServer",
+      "sourceType": "com.iot.server.TCPServer"
+    }
+  ],
+  "properties": [
+    {
+      "name": "tcp.server.port",
+      "type": "java.lang.Integer",
+      "sourceType": "com.iot.server.TCPServer"
+    },
+    {
+      "name": "tcp.server.tcp-server-handler",
+      "type": "com.iot.handler.TCPServerHandler",
+      "sourceType": "com.iot.server.TCPServer"
+    }
+  ],
+  "hints": []
+}
